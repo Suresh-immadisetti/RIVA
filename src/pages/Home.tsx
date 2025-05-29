@@ -378,12 +378,14 @@ const Home = () => {
               Contact our team today to discuss how RIVA Power Solutions can meet your water purification needs.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link 
-                to="/contact/whatsapp" 
+              <a 
+                href="https://wa.me/916300021355" 
                 className="btn bg-green-500 hover:bg-green-600 text-white"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Chat on WhatsApp
-              </Link>
+              </a>
               <Link 
                 to="/contact/email" 
                 className="btn bg-white text-primary-800 hover:bg-slate-100"
