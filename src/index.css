@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1e3a8a;
+  --primary-light: #2563eb;
+  --secondary: #0ea5e9;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --warning: #f97316;
+  --error: #ef4444;
+  --background: #f8fafc;
+  --text: #1e293b;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-blue-900 text-white hover:bg-blue-800 focus:ring-blue-700;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500;
+  }
+  
+  .btn-accent {
+    @apply btn bg-amber-500 text-white hover:bg-amber-600 focus:ring-amber-500;
+  }
+  
+  .btn-outline {
+    @apply btn border border-blue-900 text-blue-900 hover:bg-blue-50 focus:ring-blue-500;
+  }
+  
+  .card {
+    @apply rounded-lg bg-white shadow-md transition-all hover:shadow-lg;
+  }
+
+  .section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .section-title {
+    @apply text-2xl font-bold text-blue-900 sm:text-3xl lg:text-4xl mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-slate-600 mb-8 max-w-3xl;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* WhatsApp popup styles */
+.whatsapp-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+}
