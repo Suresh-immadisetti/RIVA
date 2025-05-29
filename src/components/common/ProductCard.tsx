@@ -18,9 +18,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
           <div className="p-4 text-white">
             <div className="inline-block px-2 py-1 bg-primary-700 text-xs text-white rounded mb-2">
-              {product.category === 'water-atms' 
+              {product.category === "water-atm's" 
                 ? 'Water ATM' 
-                : product.category === 'ro-controller-panels' 
+                : product.category === 'ro-control-panels' 
                   ? 'RO Panel' 
                   : 'Accessory'
               }

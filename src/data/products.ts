@@ -1,20 +1,76 @@
+// products.ts
 // Import all product images
 import model1 from "../assets/images/products/model1.jpg";
+import model1_1 from "../assets/images/products/model1_1.jpg";
+import model1_2 from "../assets/images/products/model1_2.jpg";
+import model1_3 from "../assets/images/products/model1_3.jpg";
+import model1_4 from "../assets/images/products/model1_4.jpg";
+import model1_5 from "../assets/images/products/model1_5.jpg";
+
 import model2 from '../assets/images/products/model2.jpg';
+import model2_1 from '../assets/images/products/model2_1.jpg';
+import model2_2 from '../assets/images/products/model2_2.jpg';
+import model2_3 from '../assets/images/products/model2_3.jpg';
+import model2_4 from '../assets/images/products/model2_4.jpg';
+import model2_5 from '../assets/images/products/model2_5.jpg';
+
 import model3 from '../assets/images/products/model3.jpg';
+import model3_1 from '../assets/images/products/model3_1.jpg';
+import model3_2 from '../assets/images/products/model3_2.jpg';
+import model3_3 from '../assets/images/products/model3_3.jpg';
+import model3_4 from '../assets/images/products/model3_4.jpg';
+import model3_5 from '../assets/images/products/model3_5.jpg';
+
 import model4 from '../assets/images/products/model4.jpg';
+import model4_1 from '../assets/images/products/model4_1.jpg';
+import model4_2 from '../assets/images/products/model4_2.jpg';
+import model4_3 from '../assets/images/products/model4_3.jpg';
+import model4_4 from '../assets/images/products/model4_4.jpg';
+import model4_5 from '../assets/images/products/model4_5.jpg';
+
 import robasic from '../assets/images/products/robasic.jpg';
+import robasic_1 from '../assets/images/products/robasic_1.jpg';
+import robasic_2 from '../assets/images/products/robasic_2.jpg';
+import robasic_3 from '../assets/images/products/robasic_3.jpg';
+import robasic_4 from '../assets/images/products/robasic_4.jpg';
+import robasic_5 from '../assets/images/products/robasic_5.jpg';
+
 import robasicpro from '../assets/images/products/robasicpro.png';
+import robasicpro_1 from '../assets/images/products/robasicpro_1.png';
+import robasicpro_2 from '../assets/images/products/robasicpro_2.png';
+import robasicpro_3 from '../assets/images/products/robasicpro_3.png';
+import robasicpro_4 from '../assets/images/products/robasicpro_4.png';
+import robasicpro_5 from '../assets/images/products/robasicpro_5.png';
+
 import roledsmart from '../assets/images/products/roledsmart.jpg';
+import roledsmart_1 from '../assets/images/products/roledsmart_1.jpg';
+import roledsmart_2 from '../assets/images/products/roledsmart_2.jpg';
+import roledsmart_3 from '../assets/images/products/roledsmart_3.jpg';
+import roledsmart_4 from '../assets/images/products/roledsmart_4.jpg';
+import roledsmart_5 from '../assets/images/products/roledsmart_5.jpg';
+
 import rolcdsmart from '../assets/images/products/rolcdsmart.jpg';
+import rolcdsmart_1 from '../assets/images/products/rolcdsmart_1.jpg';
+import rolcdsmart_2 from '../assets/images/products/rolcdsmart_2.jpg';
+import rolcdsmart_3 from '../assets/images/products/rolcdsmart_3.jpg';
+import rolcdsmart_4 from '../assets/images/products/rolcdsmart_4.jpg';
+import rolcdsmart_5 from '../assets/images/products/rolcdsmart_5.jpg';
+
 import filterCartridge from '../assets/images/products/filter-cartridge.jpg';
+
+
 import uvSterilizer from '../assets/images/products/uv-sterilizer.jpg';
+
+
 import rfidcards from '../assets/images/products/rfidcards.jpg';
+
+
 import tdsMeter from '../assets/images/products/tds-meter.jpg';
 
-export type ProductCategory = 'water-atms' | 'ro-controller-panels' | 'accessories';
+
+export type ProductCategory = "water-atm's" | 'ro-control-panels' | 'accessories';
 export type WaterATMSubCategory = 'coin-led' | 'coin-lcd' | 'card-based' | 'upiqr-based';
-export type ROControllerSubCategory = 'basic' | 'basic-pro' | 'led-display' | 'lcd-display';
+export type ROControlSubCategory = 'basic' | 'basic-pro' | 'led-display' | 'lcd-display';
 export type AccessoriesSubCategory = 'coin-acceptors' | 'solenoid-valves' | 'flow-sensors' | 'rfid-cards';
 
 export interface ProductFeature {
@@ -26,11 +82,11 @@ export interface Product {
   id: string;
   name: string;
   category: ProductCategory;
-  subCategory?: WaterATMSubCategory | ROControllerSubCategory | AccessoriesSubCategory;
+  subCategory?: WaterATMSubCategory | ROControlSubCategory | AccessoriesSubCategory;
   description: string;
   features: ProductFeature[];
   image: string;
-  detailImages?: string[];
+  images: string[]; // Array of all product images (6 angles)
   warranty?: string;
   specifications?: Record<string, string>;
 }
@@ -40,11 +96,11 @@ export const products: Product[] = [
   {
     id: 'water-atm-coin-led',
     name: 'Coin Based Water ATM with LED Display',
-    category: 'water-atms',
+    category: "water-atm's",
     subCategory: 'coin-led',
     description: 'Reliable coin-operated water dispensing solution with LED display for public spaces and communities.',
     features: [
-      { name: 'Microcontroller & SMPS Based' },
+      { name: 'Microcontrol & SMPS Based' },
       { name: 'Multi-Coin Acceptance' },
       { name: 'LED Display (4x1)' },
       { name: 'Auto & Manual Mode Operations' },
@@ -55,7 +111,7 @@ export const products: Product[] = [
       { name: 'Back Single Door System.' } 
     ],
     image: model1,
-    detailImages: [model1, model2],
+    images: [model1, model1_1, model1_2, model1_3, model1_4, model1_5],
     warranty: '1 year',
     specifications: {
       'Dimensions': '400x300x150 mm',
@@ -67,11 +123,11 @@ export const products: Product[] = [
   {
     id: 'water-atm-coin-lcd',
     name: 'Coin Based Water ATM with LCD Display',
-    category: 'water-atms',
+    category: "water-atm's",
     subCategory: 'coin-lcd',
     description: 'Advanced coin-operated water ATM with LCD display for better user interface.',
     features: [
-      { name: 'Microcontroller & SMPS Based' },
+      { name: 'Microcontrol & SMPS Based' },
       { name: 'Multi-Coin Acceptance' },
       { name: 'LCD Display (16x2)' },
       { name: 'Auto & Manual Mode Operations.' },
@@ -82,7 +138,7 @@ export const products: Product[] = [
       { name: 'Back Double Door System.' }
     ],
     image: model2,
-    detailImages: [model2, model3],
+    images: [model2, model2_1, model2_2, model2_3, model2_4, model2_5],
     warranty: '1 year',
     specifications: {
       'Dimensions': '400x300x150 mm',
@@ -94,11 +150,11 @@ export const products: Product[] = [
   {
     id: 'water-atm-card',
     name: 'Coin + Card Swipe Water ATM',
-    category: 'water-atms',
+    category: "water-atm's",
     subCategory: 'card-based',
     description: 'Advanced water ATM with card swipe functionality and LCD display for commercial complexes.',
     features: [
-      { name: 'Microcontroller & SMPS Based' },
+      { name: 'Microcontrol & SMPS Based' },
       { name: 'Multi Coins Accepted.' },
       { name: 'LCD Display (16x2)' },
       { name: 'Card Vending & Card Recharge Facility.' },
@@ -110,7 +166,7 @@ export const products: Product[] = [
       { name: 'Back Double Door System.' } 
     ],
     image: model3,
-    detailImages: [model3, model4],
+    images: [model3, model3_1, model3_2, model3_3, model3_4, model3_5],
     warranty: '1.5 years',
     specifications: {
       'Dimensions': '450x350x180 mm',
@@ -122,11 +178,11 @@ export const products: Product[] = [
   {
     id: 'water-atm-upiqr',
     name: 'Coin + Card + UPI QR Water ATM',
-    category: 'water-atms',
+    category: "water-atm's",
     subCategory: 'upiqr-based',
     description: 'Premium digital payment enabled water ATM with UPI QR scanning for modern smart cities.',
     features: [
-      { name: 'Microcontroller & SMPS Based' },
+      { name: 'Microcontrol & SMPS Based' },
       { name: 'Multi Coins Accepted.' },
       { name: 'LCD Display (16x2)' },
       { name: 'UPI QR Payments & Vendings.' },
@@ -139,7 +195,7 @@ export const products: Product[] = [
       { name: 'Back Double Door System.' }
     ],
     image: model4,
-    detailImages: [model4, model1],
+    images: [model4, model4_1, model4_2, model4_3, model4_4, model4_5],
     warranty: '2 years',
     specifications: {
       'Dimensions': '500x400x200 mm',
@@ -149,13 +205,13 @@ export const products: Product[] = [
     }
   },
 
-  // RO Controller Panels
+  // RO Control Panels
   {
     id: 'ro-panel-basic',
-    name: 'Basic RO Controller',
-    category: 'ro-controller-panels',
+    name: 'Basic RO Control',
+    category: 'ro-control-panels',
     subCategory: 'basic',
-    description: 'Essential RO controller with basic functionality for small-scale water purification systems.',
+    description: 'Essential RO control with basic functionality for small-scale water purification systems.',
     features: [
       { name: 'Range: 250 LPH to 1000 LPH.' },
       { name: 'No Display LED Indications.' },
@@ -166,7 +222,7 @@ export const products: Product[] = [
       { name: 'LPS Switch Provision.' }
     ],
     image: robasic,
-    detailImages: [robasic, robasicpro],
+    images: [robasic, robasic_1, robasic_2, robasic_3, robasic_4, robasic_5],
     warranty: '1 year',
     specifications: {
       'Operating Voltage': '230V AC',
@@ -177,10 +233,10 @@ export const products: Product[] = [
   },
   {
     id: 'ro-panel-pro',
-    name: 'Basic Pro RO Controller',
-    category: 'ro-controller-panels',
+    name: 'Basic Pro RO Control',
+    category: 'ro-control-panels',
     subCategory: 'basic-pro',
-    description: 'Essential RO controller with basic functionality for small-scale water purification systems.',
+    description: 'Essential RO control with basic functionality for small-scale water purification systems.',
     features: [
       { name: 'Range: 250 LPH to 1000 LPH.' },
       { name: 'No Display LED Indications.' },
@@ -191,7 +247,7 @@ export const products: Product[] = [
       { name: 'LPS Switch Provision.' }
     ],
     image: robasicpro,
-    detailImages: [robasicpro, roledsmart],
+    images: [robasicpro, robasicpro_1, robasicpro_2, robasicpro_3, robasicpro_4, robasicpro_5],
     warranty: '1 year',
     specifications: {
       'Operating Voltage': '230V AC',
@@ -202,12 +258,12 @@ export const products: Product[] = [
   },
   {
     id: 'ro-panel-led',
-    name: 'LED Display RO Controller',
-    category: 'ro-controller-panels',
+    name: 'LED Display RO Control',
+    category: 'ro-control-panels',
     subCategory: 'led-display',
-    description: 'Advanced RO controller with LED display and comprehensive protection features.',
+    description: 'Advanced RO control with LED display and comprehensive protection features.',
     features: [
-      { name: 'Micro Controller & SMPS Based RO Panel.' },
+      { name: 'Micro Control & SMPS Based RO Panel.' },
       { name: 'Range: 250 LPH to 2000 LPH.' },
       { name: 'Display - LCD Display (16X2).' },
       { name: 'Auto & Manual Mode (Fully Automatic).' },
@@ -226,7 +282,7 @@ export const products: Product[] = [
       { name: 'All Settings are Editable.' }
     ],
     image: roledsmart,
-    detailImages: [roledsmart, rolcdsmart],
+    images: [roledsmart, roledsmart_1, roledsmart_2, roledsmart_3, roledsmart_4, roledsmart_5],
     warranty: '1.5 years',
     specifications: {
       'Operating Voltage': '110-240V AC',
@@ -237,16 +293,16 @@ export const products: Product[] = [
   },
   {
     id: 'ro-panel-lcd',
-    name: 'LCD Display RO Controller',
-    category: 'ro-controller-panels',
+    name: 'LCD Display RO Control',
+    category: 'ro-control-panels',
     subCategory: 'lcd-display',
-    description: 'Premium RO controller with LCD display offering complete automation and monitoring.',
+    description: 'Premium RO control with LCD display offering complete automation and monitoring.',
     features: [
       { name: 'Range: 250 LPH to 2000 LPH.' },
       { name: 'Display - LED 7 Segment (4X1).' },
       { name: 'Auto & Manual Mode (Semi Automatic).' },
       { name: 'High & Low Voltage Protections.' },
-      { name: 'Micro Controller & SMPS Based RO Panel.' },
+      { name: 'Micro Control & SMPS Based RO Panel.' },
       { name: 'Current (Dry & Over Load) Protections.' },
       { name: 'Raw Water Tank Floaty Provision.' },
       { name: 'Treated Water Tank Floaty Provision.' },
@@ -257,7 +313,7 @@ export const products: Product[] = [
       { name: 'All Settings are Editable.' }
     ],
     image: rolcdsmart,
-    detailImages: [rolcdsmart, robasic],
+    images: [rolcdsmart, rolcdsmart_1, rolcdsmart_2, rolcdsmart_3, rolcdsmart_4, rolcdsmart_5],
     warranty: '2 years',
     specifications: {
       'Operating Voltage': '110-240V AC',
@@ -273,15 +329,15 @@ export const products: Product[] = [
     name: 'Multi Coin Acceptor',
     category: 'accessories',
     subCategory: 'coin-acceptors',
-    description: 'High-precision coin acceptor module for water ATMs with multi-coin recognition.',
+    description: "High-precision coin acceptor module for water ATM's with multi-coin recognition.",
     features: [
-      { name: 'Supports 5 Coin Types' },
+      { name: 'Supports 6 Coin Types' },
       { name: 'High Acceptance Rate' },
       { name: 'Easy Integration' },
       { name: 'Durable Construction' }
     ],
     image: filterCartridge,
-    detailImages: [filterCartridge],
+    images: [filterCartridge],
     warranty: '1 year',
     specifications: {
       'Voltage': '12V DC',
@@ -303,7 +359,7 @@ export const products: Product[] = [
       { name: 'Long Service Life' }
     ],
     image: uvSterilizer,
-    detailImages: [uvSterilizer],
+    images: [uvSterilizer],
     warranty: '2 years',
     specifications: {
       'Size': '3/4" & 1"',
@@ -325,7 +381,7 @@ export const products: Product[] = [
       { name: 'Easy Installation' }
     ],
     image: tdsMeter,
-    detailImages: [tdsMeter],
+    images: [tdsMeter],
     warranty: '1 year',
     specifications: {
       'Size': '3/4" & 1"',
@@ -347,7 +403,7 @@ export const products: Product[] = [
       { name: 'Pre-programmed' }
     ],
     image: rfidcards,
-    detailImages: [rfidcards],
+    images: [rfidcards],
     warranty: '2 years',
     specifications: {
       'Type': 'MIFARE Classic',
@@ -358,12 +414,19 @@ export const products: Product[] = [
   }
 ];
 
-// Utility functions
+// Utility functions with smooth scrolling enhancements
 export const getProductsByCategory = (category: ProductCategory): Product[] => {
   return products.filter(product => product.category === category);
 };
 
 export const getProductById = (id: string): Product | undefined => {
+  // Smooth scroll to top when getting a product by ID
+  if (typeof window !== 'undefined') {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   return products.find(product => product.id === id);
 };
 
@@ -371,7 +434,30 @@ export const getProductsBySubCategory = (
   category: ProductCategory,
   subCategory: string
 ): Product[] => {
+  // Smooth scroll to top when filtering by subcategory
+  if (typeof window !== 'undefined') {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   return products.filter(
     product => product.category === category && product.subCategory === subCategory
   );
+};
+
+// Additional utility function for smooth scrolling to elements
+export const smoothScrollToElement = (elementId: string, offset = 0) => {
+  if (typeof window !== 'undefined') {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
 };

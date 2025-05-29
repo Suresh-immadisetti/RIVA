@@ -40,12 +40,12 @@ const Chatbot = () => {
     
     // Simulate bot response after a delay
     setTimeout(() => {
-      let botResponse = "Thank you for your message. Our team will get back to you shortly. Would you like to know more about our Water ATMs or RO Control Panels?";
+      let botResponse = "Thank you for your message. Our team will get back to you shortly. Would you like to know more about our Water ATM's or RO Control Panels?";
       
       if (input.toLowerCase().includes('water') || input.toLowerCase().includes('atm')) {
-        botResponse = "Our Water ATMs are available in various models with features like multi-coin acceptance, LED/LCD displays, and UPI payment options. Would you like more details about a specific model?";
+        botResponse = "Our Water ATM's are available in various models with features like multi-coin acceptance, LED/LCD displays, and UPI payment options. Would you like more details about a specific model?";
       } else if (input.toLowerCase().includes('ro') || input.toLowerCase().includes('control') || input.toLowerCase().includes('panel')) {
-        botResponse = "Our RO Controller Panels range from basic models to advanced LCD display options with multiple features. Would you like to learn more about any specific model?";
+        botResponse = "Our RO Control Panels range from basic models to advanced LCD display options with multiple features. Would you like to learn more about any specific model?";
       } else if (input.toLowerCase().includes('price') || input.toLowerCase().includes('cost')) {
         botResponse = "Pricing depends on the specific model and features you're interested in. Please contact our sales team at +91 98765 43210 for a detailed quote.";
       }

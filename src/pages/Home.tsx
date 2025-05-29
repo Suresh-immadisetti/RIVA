@@ -30,14 +30,14 @@ const Home = () => {
   // Define categories directly in the component
   const categories: Category[] = [
     {
-      id: 'water-atms',
-      name: 'Water ATMs',
+      id: "water-atm's",
+      name: "Water ATM's",
       description: 'Advanced water dispensing solutions for public spaces',
       image: waterAtmImage,
     },
     {
-      id: 'ro-controller-panels',
-      name: 'RO Controller Panels',
+      id: 'ro-control-panels',
+      name: 'RO Control Panels',
       description: 'Intelligent control panels for water purification systems',
       image: roPanelImage,
     },
@@ -52,21 +52,21 @@ const Home = () => {
   // Define products for the carousel
   const products: Product[] = [
     {
-      id: 'water-atms',
-      name: 'Water ATMs',
+      id: "water-atm's",
+      name: "Water ATM's",
       description: 'Advanced dispensing solutions',
       image: waterAtmImage,
-      shortDescription: 'Our water ATMs offer reliable dispensing with features like multi-coin acceptance, LED/LCD displays, and UPI payment options.',
-      link: '/products/water-atms',
+      shortDescription: "Our water ATM's offer reliable dispensing with features like multi-coin acceptance, LED/LCD displays, and UPI payment options.",
+      link: "/products/water-atm's",
       linkText: 'View Models'
     },
     {
-      id: 'ro-controller-panels',
-      name: 'RO Controller Panels',
+      id: 'ro-control-panels',
+      name: 'RO Control Panels',
       description: 'Intelligent purification control',
       image: roPanelImage,
-      shortDescription: 'Our RO Controller Panels range from basic models to advanced LCD display options with comprehensive protection features.',
-      link: '/products/ro-controller-panels',
+      shortDescription: 'Our RO Control Panels range from basic models to advanced LCD display options with comprehensive protection features.',
+      link: '/products/ro-control-panels',
       linkText: 'Explore Range'
     },
     {
@@ -163,9 +163,13 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              RIVA POWER SOLUTIONS ADVANCED TECHNOLOGY IN RO INDUSTRY
-            </h1>
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+  <span className="block">RIVA POWER SOLUTIONS</span>
+  <span className="text-xl md:text-2xl lg:text-3xl font-medium block mt-2">
+    ADVANCED TECHNOLOGY IN RO INDUSTRY
+  </span>
+</h1>
+
             <p className="text-lg md:text-xl opacity-90 mb-8">
              User friendly products
             </p>

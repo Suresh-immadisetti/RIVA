@@ -68,7 +68,7 @@ const About = () => {
                 treatment industry.
               </p>
               <p className="mb-6 text-slate-700">
-                Our journey began with a simple idea: to make purified water accessible, affordable, and easy to dispense for everyone — from urban centers to rural villages. Today, we design and manufacture advanced Water ATMs, RO Control Panels, and a range of smart water automation accessories that power community water systems, schools, hospitals, and public facilities across the region.
+                Our journey began with a simple idea: to make purified water accessible, affordable, and easy to dispense for everyone — from urban centers to rural villages. Today, we design and manufacture advanced Water ATM's, RO Control Panels, and a range of smart water automation accessories that power community water systems, schools, hospitals, and public facilities across the region.
               </p>
               <p className="text-slate-700">
                 With a focus on innovation, reliability, and ease of use, our products are built to serve a wide range of needs — from coin-operated and UPI-enabled water vending machines to fully programmable RO control systems. We believe in the power of smart technology to solve real-world problems, and we are proud to play a role in creating a more sustainable and water-secure future.

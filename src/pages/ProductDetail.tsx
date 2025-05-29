@@ -1,27 +1,68 @@
-import { useEffect, useState } from 'react';
+// ProductDetail.tsx
+import { useEffect, useState, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageCircle, ArrowLeft, ChevronRight, Info } from 'lucide-react';
+import { MessageCircle, ArrowLeft, ChevronRight, Info, ChevronLeft, ChevronRight as RightIcon } from 'lucide-react';
 import { products, Product } from '../data/products';
 
 const ProductDetail = () => {
   const { id, category } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
-  const [currentImage, setCurrentImage] = useState<string>('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (id) {
       const foundProduct = products.find(p => p.id === id);
       if (foundProduct) {
         setProduct(foundProduct);
-        setCurrentImage(foundProduct.image);
       } else {
         navigate('/products', { replace: true });
       }
     }
     window.scrollTo(0, 0);
   }, [id, navigate]);
+
+  // Auto slide functionality
+  useEffect(() => {
+    if (!product || !autoPlay) return;
+
+    intervalRef.current = setInterval(() => {
+      setCurrentImageIndex(prev => (prev + 1) % product.images.length);
+    }, 5000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [product, autoPlay]);
+
+  const handlePrevImage = () => {
+    setAutoPlay(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    setCurrentImageIndex(prev => (prev === 0 ? product!.images.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = () => {
+    setAutoPlay(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    setCurrentImageIndex(prev => (prev + 1) % product!.images.length);
+  };
+
+  const handleImageSelect = (index: number) => {
+    setAutoPlay(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    setCurrentImageIndex(index);
+  };
 
   const handleWhatsAppInquiry = () => {
     if (product) {
@@ -70,8 +111,8 @@ const ProductDetail = () => {
             <Link to={`/products/${category}`} className="text-slate-500 hover:text-primary-700">
               {category === 'water-atms' 
                 ? 'Water ATMs' 
-                : category === 'ro-controller-panels' 
-                  ? 'RO Controller Panels' 
+                : category === 'ro-control-panels' 
+                  ? 'RO Control Panels' 
                   : 'Accessories'
               }
             </Link>
@@ -92,50 +133,64 @@ const ProductDetail = () => {
               transition={{ duration: 0.7 }}
               className="sticky top-24 self-start"
             >
-              <div className="mb-4 aspect-square bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+              {/* Main Image with Navigation */}
+              <div className="relative mb-4 aspect-square bg-gray-50 rounded-lg overflow-hidden">
                 <img 
-                  src={currentImage} 
-                  alt={product.name} 
+                  src={product.images[currentImageIndex]} 
+                  alt={`${product.name} - View ${currentImageIndex + 1}`} 
                   className="w-full h-full object-contain p-6"
                   onError={handleImageError}
                   loading="lazy"
                 />
+                
+                {/* Navigation Arrows */}
+                <button 
+                  onClick={handlePrevImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 rounded-full p-2 shadow-md transition-all hover:scale-110"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button 
+                  onClick={handleNextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 rounded-full p-2 shadow-md transition-all hover:scale-110"
+                  aria-label="Next image"
+                >
+                  <RightIcon size={24} />
+                </button>
+                
+                {/* Auto-play toggle */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                  <button 
+                    onClick={() => setAutoPlay(!autoPlay)}
+                    className={`px-3 py-1 text-xs rounded-full ${autoPlay ? 'bg-primary-600 text-white' : 'bg-white/80 text-slate-700'}`}
+                  >
+                    {autoPlay ? 'Pause' : 'Play'} Auto View
+                  </button>
+                </div>
               </div>
-              {product.detailImages && product.detailImages.length > 0 && (
-                <div className="grid grid-cols-4 gap-3">
-                  <div 
-                    onClick={() => setCurrentImage(product.image)}
-                    className={`aspect-square cursor-pointer rounded-md overflow-hidden border-2 flex items-center justify-center bg-gray-50 ${
-                      currentImage === product.image ? 'border-primary-500' : 'border-transparent'
+              
+              {/* Thumbnail Navigation */}
+              <div className="grid grid-cols-6 gap-2">
+                {product.images.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleImageSelect(index)}
+                    className={`aspect-square rounded-md overflow-hidden border-2 flex items-center justify-center bg-gray-50 transition-all ${
+                      currentImageIndex === index ? 'border-primary-500 scale-105' : 'border-transparent hover:border-slate-300'
                     }`}
+                    aria-label={`View image ${index + 1}`}
                   >
                     <img 
-                      src={product.image}
-                      alt={`${product.name} main`}
-                      className="w-full h-full object-contain p-2"
+                      src={img}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-contain p-1"
                       onError={handleImageError}
                       loading="lazy"
                     />
-                  </div>
-                  {product.detailImages.map((img, index) => (
-                    <div 
-                      key={index} 
-                      onClick={() => setCurrentImage(img)}
-                      className={`aspect-square cursor-pointer rounded-md overflow-hidden border-2 flex items-center justify-center bg-gray-50 ${
-                        currentImage === img ? 'border-primary-500' : 'border-transparent'
-                      }`}
-                    >
-                      <img 
-                        src={img}
-                        alt={`${product.name} view ${index + 1}`}
-                        className="w-full h-full object-contain p-2"
-                        onError={handleImageError}
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
+                  </button>
+                ))}
+              </div>
             </motion.div>
             
             {/* Product Info */}
@@ -146,10 +201,10 @@ const ProductDetail = () => {
             >
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <span className="inline-block px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded">
-                  {category === 'water-atms' 
+                  {category === "water-atms" 
                     ? 'Water ATM' 
-                    : category === 'ro-controller-panels' 
-                      ? 'RO Controller Panel' 
+                    : category === 'ro-control-panels' 
+                      ? 'RO Control Panel' 
                       : 'Accessory'
                   }
                 </span>
@@ -232,10 +287,10 @@ const ProductDetail = () => {
             >
               <ArrowLeft size={16} className="mr-2" />
               <span>Back to {
-                category === 'water-atms' 
-                  ? 'Water ATMs' 
-                  : category === 'ro-controller-panels' 
-                    ? 'RO Controller Panels' 
+                category === "water-atms" 
+                  ? "Water ATMs" 
+                  : category === 'ro-control-panels' 
+                    ? 'RO Control Panels' 
                     : 'Accessories'
               }</span>
             </Link>
@@ -262,8 +317,16 @@ const ProductDetail = () => {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-semibold text-primary-900 mb-1">{relatedProduct.name}</h3>
-                      <p className="text-slate-600 text-sm line-clamp-2">{relatedProduct.description}</p>
+                      <h3 className="text-lg font-semibold text-slate-800 mb-2 line-clamp-2">
+                        {relatedProduct.name}
+                      </h3>
+                      <p className="text-slate-600 text-sm line-clamp-3 mb-3">
+                        {relatedProduct.description}
+                      </p>
+                      <div className="flex items-center text-primary-700 font-medium text-sm">
+                        <span>View Details</span>
+                        <ChevronRight size={16} className="ml-1" />
+                      </div>
                     </div>
                   </Link>
                 </div>

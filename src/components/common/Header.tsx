@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { HomeIcon, InfoIcon, PhoneIcon, ShoppingBagIcon, Menu, X, ChevronDown } from 'lucide-react';
 import logo from "../../assets/logo.png";
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,24 @@ const Header = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isOpen, isProductsOpen]);
 
+  // Scroll to top when route changes
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Scroll to top when pathname changes
+    scrollToTop();
+  }, [location.pathname]);
+
+  const handleNavLinkClick = () => {
+    setIsOpen(false);
+    setIsProductsOpen(false);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -39,7 +58,18 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link 
+            to="/" 
+            className="flex items-center space-x-3"
+            onClick={() => {
+              if (window.location.pathname === '/') {
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                });
+              }
+            }}
+          >
             <img src={logo} alt="RIVA Logo" className="h-12 w-44" />
           </Link>
 
@@ -52,6 +82,7 @@ const Header = () => {
                   isActive ? 'text-primary-700' : 'text-slate-700 hover:text-primary-600'
                 }`
               }
+              onClick={handleNavLinkClick}
             >
               <HomeIcon size={16} />
               <span>Home</span>
@@ -63,6 +94,7 @@ const Header = () => {
                   isActive ? 'text-primary-700' : 'text-slate-700 hover:text-primary-600'
                 }`
               }
+              onClick={handleNavLinkClick}
             >
               <InfoIcon size={16} />
               <span>About Us</span>
@@ -82,23 +114,32 @@ const Header = () => {
               {isProductsOpen && (
                 <div className="absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg py-2 w-56 z-10">
                   <Link
-                    to="/products/water-atms"
+                    to="/products/water-atm's"
                     className="block px-4 py-2 text-sm text-slate-700 hover:bg-primary-50 hover:text-primary-700"
-                    onClick={() => setIsProductsOpen(false)}
+                    onClick={() => {
+                      setIsProductsOpen(false);
+                      handleNavLinkClick();
+                    }}
                   >
-                    Water ATMs
+                    Water ATM's
                   </Link>
                   <Link
-                    to="/products/ro-controller-panels"
+                    to="/products/ro-control-panels"
                     className="block px-4 py-2 text-sm text-slate-700 hover:bg-primary-50 hover:text-primary-700"
-                    onClick={() => setIsProductsOpen(false)}
+                    onClick={() => {
+                      setIsProductsOpen(false);
+                      handleNavLinkClick();
+                    }}
                   >
-                    RO Controller Panels
+                    RO Control Panels
                   </Link>
                   <Link
                     to="/products/accessories"
                     className="block px-4 py-2 text-sm text-slate-700 hover:bg-primary-50 hover:text-primary-700"
-                    onClick={() => setIsProductsOpen(false)}
+                    onClick={() => {
+                      setIsProductsOpen(false);
+                      handleNavLinkClick();
+                    }}
                   >
                     Accessories
                   </Link>
@@ -113,6 +154,7 @@ const Header = () => {
                   isActive ? 'text-primary-700' : 'text-slate-700 hover:text-primary-600'
                 }`
               }
+              onClick={handleNavLinkClick}
             >
               <PhoneIcon size={16} />
               <span>Contact Us</span>
@@ -133,7 +175,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block py-2 px-4 ${isActive ? 'bg-primary-50 text-primary-700' : 'text-slate-700'} rounded-md`
               }
-              onClick={toggleMenu}
+              onClick={handleNavLinkClick}
             >
               <div className="flex items-center space-x-2">
                 <HomeIcon size={16} />
@@ -146,7 +188,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block py-2 px-4 ${isActive ? 'bg-primary-50 text-primary-700' : 'text-slate-700'} rounded-md`
               }
-              onClick={toggleMenu}
+              onClick={handleNavLinkClick}
             >
               <div className="flex items-center space-x-2">
                 <InfoIcon size={16} />
@@ -170,23 +212,23 @@ const Header = () => {
               {isProductsOpen && (
                 <div className="mt-2 pl-6 border-l-2 border-primary-100">
                   <Link
-                    to="/products/water-atms"
+                    to="/products/water-atm's"
                     className="block py-2 text-sm text-slate-700"
-                    onClick={toggleMenu}
+                    onClick={handleNavLinkClick}
                   >
-                    Water ATMs
+                    Water ATM's
                   </Link>
                   <Link
-                    to="/products/ro-controller-panels"
+                    to="/products/ro-control-panels"
                     className="block py-2 text-sm text-slate-700"
-                    onClick={toggleMenu}
+                    onClick={handleNavLinkClick}
                   >
-                    RO Controller Panels
+                    RO Control Panels
                   </Link>
                   <Link
                     to="/products/accessories"
                     className="block py-2 text-sm text-slate-700"
-                    onClick={toggleMenu}
+                    onClick={handleNavLinkClick}
                   >
                     Accessories
                   </Link>
@@ -199,7 +241,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block py-2 px-4 ${isActive ? 'bg-primary-50 text-primary-700' : 'text-slate-700'} rounded-md`
               }
-              onClick={toggleMenu}
+              onClick={handleNavLinkClick}
             >
               <div className="flex items-center space-x-2">
                 <PhoneIcon size={16} />
