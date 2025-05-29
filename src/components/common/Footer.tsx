@@ -7,17 +7,25 @@ import {
   YoutubeIcon,
   MessageCircle,
 } from 'lucide-react';
-import logo from '../../assets/logo.png'; // ✅ Corrected path
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
+  // Function to handle smooth scroll to top when navigating
+  const handleNavigation = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className="bg-primary-900 text-white pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <img src={logo} alt="RIVA Logo" className="w-18 h-14 " />
+            <Link to="/" className="flex items-center space-x-2 mb-4" onClick={handleNavigation}>
+              <img src={logo} alt="RIVA Logo" className="w-18 h-14" />
               <span className="text-xl font-bold">RIVA Power Solutions</span>
             </Link>
             <p className="text-slate-300 text-sm">
@@ -31,16 +39,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-primary-700 pb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-slate-300 hover:text-white transition">Home</Link>
+                <Link to="/" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Home</Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-white transition">About Us</Link>
+                <Link to="/about" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>About Us</Link>
               </li>
               <li>
-                <Link to="/products" className="text-slate-300 hover:text-white transition">Our Products</Link>
+                <Link to="/products" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Our Products</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-slate-300 hover:text-white transition">Contact Us</Link>
+                <Link to="/contact" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -50,13 +58,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-primary-700 pb-2">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products/water-atms" className="text-slate-300 hover:text-white transition">Water ATMs</Link>
+                <Link to="/products/water-atms" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Water ATMs</Link>
               </li>
               <li>
-                <Link to="/products/ro-controller-panels" className="text-slate-300 hover:text-white transition">RO Controller Panels</Link>
+                <Link to="/products/ro-controller-panels" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>RO Controller Panels</Link>
               </li>
               <li>
-                <Link to="/products/accessories" className="text-slate-300 hover:text-white transition">Accessories</Link>
+                <Link to="/products/accessories" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Accessories</Link>
               </li>
             </ul>
           </div>
@@ -71,7 +79,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <span className="text-slate-300">📞</span>
-                <a href="tel:+919876543210" className="text-slate-300 hover:text-white transition">+91 6300021355</a>
+                <a href="tel:+916300021355" className="text-slate-300 hover:text-white transition">+91 6300021355</a>
               </li>
               <li className="flex items-center space-x-3">
                 <span className="text-slate-300">✉️</span>
