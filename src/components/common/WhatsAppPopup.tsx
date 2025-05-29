@@ -19,7 +19,7 @@ const WhatsAppPopup = () => {
   };
 
   const handleWhatsAppRedirect = () => {
-    window.open('https://wa.me/919876543210?text=Hello%20RIVA%20Power%20Solutions,%20I%20would%20like%20to%20know%20more%20about%20your%20products.', '_blank');
+    window.open('https://wa.me/+916300021355?text=Hello%20RIVA%20Power%20Solutions,%20I%20would%20like%20to%20know%20more%20about%20your%20products.', '_blank');
   };
 
   if (!isVisible) return null;

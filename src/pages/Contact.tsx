@@ -97,7 +97,7 @@ const Contact = () => {
                 <Phone size={24} className="text-primary-600" />
               </div>
               <h3 className="text-lg font-semibold text-slate-800 mb-2">Phone</h3>
-              <a href="tel:+919876543210" className="text-primary-600 hover:underline">+91 6300021355</a>
+              <a href="tel:+916300021355" className="text-primary-600 hover:underline">+91 6300021355</a>
               <p className="text-sm text-slate-500 mt-2">Mon-Sat, 9am to 6pm</p>
             </div>
             
