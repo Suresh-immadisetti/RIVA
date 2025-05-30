@@ -193,7 +193,7 @@ const Home = () => {
       </section>
       
       {/* Promotional Features */}
-      <section className="section bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <motion.div 
             variants={containerVariants}
@@ -202,24 +202,24 @@ const Home = () => {
             viewport={{ once: true, amount: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            <motion.div variants={itemVariants} className="card p-6 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 text-primary-700 mb-4">
+            <motion.div variants={itemVariants} className="card p-8 text-center bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 text-primary-700 mb-4 mx-auto">
                 <ShieldCheckIcon size={32} />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">Quality Guarantee</h3>
               <p className="text-slate-600">100% satisfaction with every panel and water ATM we deliver, backed by our comprehensive warranty.</p>
             </motion.div>
             
-            <motion.div variants={itemVariants} className="card p-6 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-100 text-secondary-700 mb-4">
+            <motion.div variants={itemVariants} className="card p-8 text-center bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-100 text-secondary-700 mb-4 mx-auto">
                 <DropletIcon size={32} />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">Water ATM Experts</h3>
               <p className="text-slate-600">Reliable & efficient hydration solutions designed for public spaces, businesses, and communities.</p>
             </motion.div>
             
-            <motion.div variants={itemVariants} className="card p-6 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-100 text-accent-700 mb-4">
+            <motion.div variants={itemVariants} className="card p-8 text-center bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-100 text-accent-700 mb-4 mx-auto">
                 <SettingsIcon size={32} />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">Accessories & Support</h3>
@@ -229,8 +229,8 @@ const Home = () => {
         </div>
       </section>
       
-      {/* Featured Products Carousel - Updated with fixed sizing */}
-      <section className="section bg-slate-50 py-16">
+      {/* Featured Products Carousel */}
+      <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Premium Products</h2>
@@ -256,16 +256,15 @@ const Home = () => {
                     variants={itemVariants}
                     initial="hidden"
                     whileInView="visible"
-                    className="card overflow-hidden group w-full mx-auto flex flex-col md:flex-row h-[500px] md:h-[400px]"
+                    className="card overflow-hidden group w-full mx-auto flex flex-col md:flex-row h-[500px] md:h-[400px] bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
                   >
                     <div className="md:w-1/2 h-full overflow-hidden relative">
-                      <div className="absolute inset-0 bg-gray-200">
-                        
+                      <div className="absolute inset-0 bg-gray-100">
                         <img 
-                        src={product.image}
-                        alt={product.name} 
-                        className="w-full h-full object-contain p-4 mx-auto transition-transform duration-300 group-hover:scale-105"
-                      />
+                          src={product.image}
+                          alt={product.name} 
+                          className="w-full h-full object-contain p-4 mx-auto transition-transform duration-300 group-hover:scale-105"
+                        />
                       </div>
                     </div>
                     <div className="md:w-1/2 p-8 flex flex-col justify-center">
@@ -320,7 +319,7 @@ const Home = () => {
       </section>
       
       {/* Categories Section */}
-      <section className="section bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-800 mb-4">Shop by Categories</h2>
@@ -334,7 +333,7 @@ const Home = () => {
               <Link 
                 key={category.id} 
                 to={`/products/${category.id}`} 
-                className="card overflow-hidden group h-96 relative"
+                className="card overflow-hidden group h-96 relative rounded-xl shadow-sm hover:shadow-lg transition-shadow"
               >
                 <div className="absolute inset-0 overflow-hidden bg-gray-100 flex items-center justify-center">
                   <img 
