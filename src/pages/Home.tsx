@@ -9,6 +9,14 @@ import roPanelImage from '../assets/images/ro-panel.jpg';
 import accessoriesImage from '../assets/images/accessories.jpg';
 import heroBackground from '../assets/images/hero-background.jpg';
 
+// Smooth scroll to top function
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
 interface Category {
   id: string;
   name: string;
@@ -177,6 +185,7 @@ const Home = () => {
               <Link 
                 to="/products" 
                 className="btn bg-white text-primary-800 hover:bg-slate-100"
+                onClick={scrollToTop}
               >
                 <span>Explore Products</span>
                 <ArrowRight size={16} className="ml-2" />
@@ -184,6 +193,7 @@ const Home = () => {
               <Link 
                 to="/contact" 
                 className="btn border border-white text-white hover:bg-white/10"
+                onClick={scrollToTop}
               >
                 Contact Us
               </Link>
@@ -276,6 +286,7 @@ const Home = () => {
                         <Link 
                           to={product.link} 
                           className="inline-flex items-center text-primary-700 hover:text-primary-800 font-medium transition-colors duration-200"
+                          onClick={scrollToTop}
                         >
                           <span className="font-semibold">{product.linkText}</span>
                           <ArrowRight size={18} className="ml-2 transition-transform duration-200 group-hover:translate-x-1" />
@@ -334,6 +345,7 @@ const Home = () => {
                 key={category.id} 
                 to={`/products/${category.id}`} 
                 className="card overflow-hidden group h-96 relative rounded-xl shadow-sm hover:shadow-lg transition-shadow"
+                onClick={scrollToTop}
               >
                 <div className="absolute inset-0 overflow-hidden bg-gray-100 flex items-center justify-center">
                   <img 
@@ -371,12 +383,14 @@ const Home = () => {
                 className="btn bg-green-500 hover:bg-green-600 text-white"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={scrollToTop}
               >
                 Chat on WhatsApp
               </a>
               <Link 
                 to="/contact/email" 
                 className="btn bg-white text-primary-800 hover:bg-slate-100"
+                onClick={scrollToTop}
               >
                 Send Email Inquiry
               </Link>
