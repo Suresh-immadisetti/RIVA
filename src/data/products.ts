@@ -160,7 +160,7 @@ export const products: Product[] = [
       { name: 'Back Double Door System.' } 
     ],
     image: model3,
-    images: [model3, model3_1, model3_2, model3_3, model3_4, model3_5],
+    images: [model3, model3_1, model3_2],
     warranty: '1.5 years',
     specifications: {
       'Dimensions': '450x350x180 mm',
