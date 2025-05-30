@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Filter, X } from 'lucide-react';
-import { products, Product } from '../data/products';
+import { products, Product, ProductCategory, formatCategoryUrl } from '../data/products';
 
 type Category = {
   id: string;
