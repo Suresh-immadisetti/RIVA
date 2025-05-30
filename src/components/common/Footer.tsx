@@ -30,7 +30,7 @@ const Footer = () => {
             </Link>
             <p className="text-slate-300 text-sm">
               Leading provider of water treatment solutions, delivering innovative water ATM's and
-              RO control panels for homes and businesses across India.
+              RO Control Panels for homes and businesses across India.
             </p>
           </div>
 
@@ -58,13 +58,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-primary-700 pb-2">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products/water-atm's" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Water ATM's</Link>
+                <Link to="/products/Water-ATM's" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Water ATM's</Link>
               </li>
               <li>
-                <Link to="/products/ro-control-panels" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>RO Control Panels</Link>
+                <Link to="/products/RO-Control-Panels" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>RO Control Panels</Link>
               </li>
               <li>
-                <Link to="/products/accessories" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Accessories</Link>
+                <Link to="/products/Accessories" className="text-slate-300 hover:text-white transition" onClick={handleNavigation}>Accessories</Link>
               </li>
             </ul>
           </div>

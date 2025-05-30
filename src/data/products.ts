@@ -31,23 +31,17 @@ import model4_5 from '../assets/images/products/model4_5.jpg';
 import robasic from '../assets/images/products/robasic.jpg';
 import robasic_1 from '../assets/images/products/robasic_1.jpg';
 import robasic_2 from '../assets/images/products/robasic_2.jpg';
-import robasic_3 from '../assets/images/products/robasic_3.jpg';
-import robasic_4 from '../assets/images/products/robasic_4.jpg';
-import robasic_5 from '../assets/images/products/robasic_5.jpg';
+
 
 import robasicpro from '../assets/images/products/robasicpro.png';
 import robasicpro_1 from '../assets/images/products/robasicpro_1.png';
 import robasicpro_2 from '../assets/images/products/robasicpro_2.png';
-import robasicpro_3 from '../assets/images/products/robasicpro_3.png';
-import robasicpro_4 from '../assets/images/products/robasicpro_4.png';
-import robasicpro_5 from '../assets/images/products/robasicpro_5.png';
+
 
 import roledsmart from '../assets/images/products/roledsmart.jpg';
 import roledsmart_1 from '../assets/images/products/roledsmart_1.jpg';
 import roledsmart_2 from '../assets/images/products/roledsmart_2.jpg';
-import roledsmart_3 from '../assets/images/products/roledsmart_3.jpg';
-import roledsmart_4 from '../assets/images/products/roledsmart_4.jpg';
-import roledsmart_5 from '../assets/images/products/roledsmart_5.jpg';
+
 
 import rolcdsmart from '../assets/images/products/rolcdsmart.jpg';
 import rolcdsmart_1 from '../assets/images/products/rolcdsmart_1.jpg';
@@ -68,10 +62,10 @@ import rfidcards from '../assets/images/products/rfidcards.jpg';
 import tdsMeter from '../assets/images/products/tds-meter.jpg';
 
 
-export type ProductCategory = "water-atm's" | 'ro-control-panels' | 'accessories';
-export type WaterATMSubCategory = 'coin-led' | 'coin-lcd' | 'card-based' | 'upiqr-based';
-export type ROControlSubCategory = 'basic' | 'basic-pro' | 'led-display' | 'lcd-display';
-export type AccessoriesSubCategory = 'coin-acceptors' | 'solenoid-valves' | 'flow-sensors' | 'rfid-cards';
+export type ProductCategory = "Water-ATM's" | "RO-Control-Panels" | "Accessories";
+export type WaterATMSubCategory = 'Coin-LED' | 'Coin-LCD' | 'Card-Based' | 'upiqr-Based';
+export type ROControlSubCategory = 'Basic' | 'Basic-Pro' | 'LED-Display' | 'LCD-Display';
+export type AccessoriesSubCategory = 'Coin-Acceptors' | 'Solenoid-Valves' | 'Flow-Sensors' | 'RFID-Cards';
 
 export interface ProductFeature {
   name: string;
@@ -94,10 +88,10 @@ export interface Product {
 export const products: Product[] = [
   // Water ATMs
   {
-    id: 'water-atm-coin-led',
+    id: 'Water-Atm-Coin-LED',
     name: 'Coin Based Water ATM with LED Display',
-    category: "water-atm's",
-    subCategory: 'coin-led',
+    category: "Water-ATM's",
+    subCategory: 'Coin-LED',
     description: 'Reliable coin-operated water dispensing solution with LED display for public spaces and communities.',
     features: [
       { name: 'Microcontrol & SMPS Based' },
@@ -121,10 +115,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'water-atm-coin-lcd',
+    id: 'Water-ATM-Coin-LCD',
     name: 'Coin Based Water ATM with LCD Display',
-    category: "water-atm's",
-    subCategory: 'coin-lcd',
+    category: "Water-ATM's",
+    subCategory: 'Coin-LCD',
     description: 'Advanced coin-operated water ATM with LCD display for better user interface.',
     features: [
       { name: 'Microcontrol & SMPS Based' },
@@ -148,10 +142,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'water-atm-card',
+    id: 'Water-ATM-Card',
     name: 'Coin + Card Swipe Water ATM',
-    category: "water-atm's",
-    subCategory: 'card-based',
+    category: "Water-ATM's",
+    subCategory: 'Card-Based',
     description: 'Advanced water ATM with card swipe functionality and LCD display for commercial complexes.',
     features: [
       { name: 'Microcontrol & SMPS Based' },
@@ -176,10 +170,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'water-atm-upiqr',
+    id: 'Water-ATM-upiqr',
     name: 'Coin + Card + UPI QR Water ATM',
-    category: "water-atm's",
-    subCategory: 'upiqr-based',
+    category: "Water-ATM's",
+    subCategory: 'upiqr-Based',
     description: 'Premium digital payment enabled water ATM with UPI QR scanning for modern smart cities.',
     features: [
       { name: 'Microcontrol & SMPS Based' },
@@ -207,10 +201,10 @@ export const products: Product[] = [
 
   // RO Control Panels
   {
-    id: 'ro-panel-basic',
+    id: 'RO-Panel-Basic',
     name: 'Basic RO Control',
-    category: 'ro-control-panels',
-    subCategory: 'basic',
+    category: 'RO-Control-Panels',
+    subCategory: 'Basic',
     description: 'Essential RO control with basic functionality for small-scale water purification systems.',
     features: [
       { name: 'Range: 250 LPH to 1000 LPH.' },
@@ -222,7 +216,7 @@ export const products: Product[] = [
       { name: 'LPS Switch Provision.' }
     ],
     image: robasic,
-    images: [robasic, robasic_1, robasic_2, robasic_3, robasic_4, robasic_5],
+    images: [robasic, robasic_1, robasic_2],
     warranty: '1 year',
     specifications: {
       'Operating Voltage': '230V AC',
@@ -232,10 +226,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'ro-panel-pro',
+    id: 'RO-Panel-Pro',
     name: 'Basic Pro RO Control',
-    category: 'ro-control-panels',
-    subCategory: 'basic-pro',
+    category: 'RO-Control-Panels',
+    subCategory: 'Basic-Pro',
     description: 'Essential RO control with basic functionality for small-scale water purification systems.',
     features: [
       { name: 'Range: 250 LPH to 1000 LPH.' },
@@ -247,7 +241,7 @@ export const products: Product[] = [
       { name: 'LPS Switch Provision.' }
     ],
     image: robasicpro,
-    images: [robasicpro, robasicpro_1, robasicpro_2, robasicpro_3, robasicpro_4, robasicpro_5],
+    images: [robasicpro, robasicpro_1, robasicpro_2],
     warranty: '1 year',
     specifications: {
       'Operating Voltage': '230V AC',
@@ -257,10 +251,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'ro-panel-led',
+    id: 'RO-Panel-LED',
     name: 'LED Display RO Control',
-    category: 'ro-control-panels',
-    subCategory: 'led-display',
+    category: 'RO-Control-Panels',
+    subCategory: 'LED-Display',
     description: 'Advanced RO control with LED display and comprehensive protection features.',
     features: [
       { name: 'Micro Control & SMPS Based RO Panel.' },
@@ -282,7 +276,7 @@ export const products: Product[] = [
       { name: 'All Settings are Editable.' }
     ],
     image: roledsmart,
-    images: [roledsmart, roledsmart_1, roledsmart_2, roledsmart_3, roledsmart_4, roledsmart_5],
+    images: [roledsmart, roledsmart_1, roledsmart_2],
     warranty: '1.5 years',
     specifications: {
       'Operating Voltage': '110-240V AC',
@@ -292,10 +286,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'ro-panel-lcd',
+    id: 'RO-Panel-LCD',
     name: 'LCD Display RO Control',
-    category: 'ro-control-panels',
-    subCategory: 'lcd-display',
+    category: 'RO-Control-Panels',
+    subCategory: 'LCD-Display',
     description: 'Premium RO control with LCD display offering complete automation and monitoring.',
     features: [
       { name: 'Range: 250 LPH to 2000 LPH.' },
@@ -325,10 +319,10 @@ export const products: Product[] = [
 
   // Accessories
   {
-    id: 'multi-coin-acceptor',
+    id: 'Multi-Coin-Acceptor',
     name: 'Multi Coin Acceptor',
-    category: 'accessories',
-    subCategory: 'coin-acceptors',
+    category: 'Accessories',
+    subCategory: 'Coin-Acceptors',
     description: "High-precision coin acceptor module for water ATM's with multi-coin recognition.",
     features: [
       { name: 'Supports 6 Coin Types' },
@@ -347,10 +341,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'solenoid-valve',
+    id: 'Solenoid-Valve',
     name: 'AC Solenoid Valves (3/4" & 1")',
-    category: 'accessories',
-    subCategory: 'solenoid-valves',
+    category: 'Accessories',
+    subCategory: 'Solenoid-Valves',
     description: 'High-quality solenoid valves for precise water flow control in dispensing systems.',
     features: [
       { name: 'Brass Body Construction' },
@@ -369,10 +363,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'flow-sensor',
+    id: 'Flow-Sensor',
     name: 'Water Flow Sensor',
-    category: 'accessories',
-    subCategory: 'flow-sensors',
+    category: 'Accessories',
+    subCategory: 'Flow-Sensors',
     description: 'Accurate flow measurement sensors for monitoring water dispensing volumes.',
     features: [
       { name: 'Hall Effect Sensor' },
@@ -391,10 +385,10 @@ export const products: Product[] = [
     }
   },
   {
-    id: 'rfid-card',
+    id: 'RFID-Card',
     name: 'RFID User Cards',
-    category: 'accessories',
-    subCategory: 'rfid-cards',
+    category: 'Accessories',
+    subCategory: 'RFID-Cards',
     description: 'RFID cards for secure user authentication in card-based water ATM systems.',
     features: [
       { name: '13.56MHz Frequency' },
@@ -417,6 +411,9 @@ export const products: Product[] = [
 // Utility functions with smooth scrolling enhancements
 export const getProductsByCategory = (category: ProductCategory): Product[] => {
   return products.filter(product => product.category === category);
+};
+export const formatCategoryUrl = (category: ProductCategory): string => {
+  return category.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
 };
 
 export const getProductById = (id: string): Product | undefined => {

@@ -38,7 +38,8 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
           >
-            About RIVA Power Solutions
+            <p>ABOUT </p>
+            RIVA Power Solutions
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

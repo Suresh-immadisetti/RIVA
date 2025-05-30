@@ -30,19 +30,19 @@ const Home = () => {
   // Define categories directly in the component
   const categories: Category[] = [
     {
-      id: "water-atm's",
+      id: "Water-ATM's",
       name: "Water ATM's",
       description: 'Advanced water dispensing solutions for public spaces',
       image: waterAtmImage,
     },
     {
-      id: 'ro-control-panels',
+      id: 'RO-Control-Panels',
       name: 'RO Control Panels',
       description: 'Intelligent control panels for water purification systems',
       image: roPanelImage,
     },
     {
-      id: 'accessories',
+      id: 'Accessories',
       name: 'Accessories',
       description: 'Essential components and parts for your water solutions',
       image: accessoriesImage,
@@ -52,30 +52,30 @@ const Home = () => {
   // Define products for the carousel
   const products: Product[] = [
     {
-      id: "water-atm's",
+      id: "Water-ATM's",
       name: "Water ATM's",
       description: 'Advanced dispensing solutions',
       image: waterAtmImage,
       shortDescription: "Our water ATM's offer reliable dispensing with features like multi-coin acceptance, LED/LCD displays, and UPI payment options.",
-      link: "/products/water-atm's",
+      link: "/products/Water-ATM's",
       linkText: 'View Models'
     },
     {
-      id: 'ro-control-panels',
+      id: 'RO-Control-Panels',
       name: 'RO Control Panels',
       description: 'Intelligent purification control',
       image: roPanelImage,
       shortDescription: 'Our RO Control Panels range from basic models to advanced LCD display options with comprehensive protection features.',
-      link: '/products/ro-control-panels',
+      link: '/products/RO-Control-Panels',
       linkText: 'Explore Range'
     },
     {
-      id: 'accessories',
+      id: 'Accessories',
       name: 'Accessories',
       description: 'Essential components',
       image: accessoriesImage,
       shortDescription: 'Complete your water solution with our accessories including multi-coin acceptors, solenoid valves, flow sensors, and RFID cards.',
-      link: '/products/accessories',
+      link: '/products/Accessories',
       linkText: 'View Accessories'
     }
   ];
@@ -164,14 +164,14 @@ const Home = () => {
             className="max-w-3xl"
           >
            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-  <span className="block">RIVA POWER SOLUTIONS</span>
-  <span className="text-xl md:text-2xl lg:text-3xl font-medium block mt-2">
-    ADVANCED TECHNOLOGY IN RO INDUSTRY
-  </span>
-</h1>
+              <span className="block">RIVA POWER SOLUTIONS</span>
+              <span className="text-xl md:text-2xl lg:text-3xl font-medium block mt-2">
+                ADVANCED TECHNOLOGY IN RO INDUSTRY
+              </span>
+            </h1>
 
             <p className="text-lg md:text-xl opacity-90 mb-8">
-             User friendly products
+              User friendly products
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
@@ -260,19 +260,12 @@ const Home = () => {
                   >
                     <div className="md:w-1/2 h-full overflow-hidden relative">
                       <div className="absolute inset-0 bg-gray-200">
+                        
                         <img 
-                          src={product.image}
-                          alt={product.name} 
-                          className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                          style={{
-                            objectPosition: 'center center',
-                            maxWidth: '100%',
-                            maxHeight: '100%',
-                            width: 'auto',
-                            height: 'auto',
-                            margin: '0 auto'
-                          }}
-                        />
+                        src={product.image}
+                        alt={product.name} 
+                        className="w-full h-full object-contain p-4 mx-auto transition-transform duration-300 group-hover:scale-105"
+                      />
                       </div>
                     </div>
                     <div className="md:w-1/2 p-8 flex flex-col justify-center">
@@ -343,19 +336,11 @@ const Home = () => {
                 to={`/products/${category.id}`} 
                 className="card overflow-hidden group h-96 relative"
               >
-                <div className="absolute inset-0 overflow-hidden bg-gray-100">
+                <div className="absolute inset-0 overflow-hidden bg-gray-100 flex items-center justify-center">
                   <img 
                     src={category.image} 
                     alt={category.name}
-                    className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      objectPosition: 'center center',
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      width: 'auto',
-                      height: 'auto',
-                      margin: '0 auto'
-                    }}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
                 </div>

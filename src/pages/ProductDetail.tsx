@@ -1,4 +1,3 @@
-// ProductDetail.tsx
 import { useEffect, useState, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -67,7 +66,7 @@ const ProductDetail = () => {
   const handleWhatsAppInquiry = () => {
     if (product) {
       const text = `Hello RIVA Power Solutions, I'm interested in the ${product.name}. Could you please provide more information?`;
-      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+      window.open(`https://wa.me/916300021355?text=${encodeURIComponent(text)}`, '_blank');
     }
   };
 
@@ -95,8 +94,17 @@ const ProductDetail = () => {
 
   // Get related products (same category, different product)
   const relatedProducts = products.filter(
-    p => p.category === product.category && p.id !== product.id
+    p => p.category.toLowerCase().replace(/\s+/g, '-') === category && p.id !== product.id
   ).slice(0, 3);
+
+  // Function to format category for display
+  const formatCategoryName = (cat: string | undefined) => {
+    if (!cat) return '';
+    return cat
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, l => l.toUpperCase())
+      .replace(/Atms/i, "ATM's");
+  };
 
   return (
     <div className="pt-16">
@@ -109,12 +117,7 @@ const ProductDetail = () => {
             <Link to="/products" className="text-slate-500 hover:text-primary-700">Products</Link>
             <ChevronRight size={14} className="mx-2 text-slate-400" />
             <Link to={`/products/${category}`} className="text-slate-500 hover:text-primary-700">
-              {category === 'water-atms' 
-                ? 'Water ATMs' 
-                : category === 'ro-control-panels' 
-                  ? 'RO Control Panels' 
-                  : 'Accessories'
-              }
+              {formatCategoryName(category)}
             </Link>
             <ChevronRight size={14} className="mx-2 text-slate-400" />
             <span className="text-slate-900 font-medium">{product.name}</span>
@@ -201,12 +204,7 @@ const ProductDetail = () => {
             >
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <span className="inline-block px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded">
-                  {category === "water-atms" 
-                    ? 'Water ATM' 
-                    : category === 'ro-control-panels' 
-                      ? 'RO Control Panel' 
-                      : 'Accessory'
-                  }
+                  {formatCategoryName(category)}
                 </span>
                 <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded">
                   In Stock
@@ -286,13 +284,7 @@ const ProductDetail = () => {
               className="inline-flex items-center text-primary-700 hover:text-primary-800 font-medium"
             >
               <ArrowLeft size={16} className="mr-2" />
-              <span>Back to {
-                category === "water-atms" 
-                  ? "Water ATMs" 
-                  : category === 'ro-control-panels' 
-                    ? 'RO Control Panels' 
-                    : 'Accessories'
-              }</span>
+              <span>Back to {formatCategoryName(category)}</span>
             </Link>
           </div>
         </div>
@@ -306,7 +298,10 @@ const ProductDetail = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedProducts.map((relatedProduct) => (
                 <div key={relatedProduct.id} className="card overflow-hidden group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <Link to={`/products/${relatedProduct.category}/${relatedProduct.id}`} className="block">
+                  <Link 
+                    to={`/products/${relatedProduct.category.toLowerCase().replace(/\s+/g, '-')}/${relatedProduct.id}`} 
+                    className="block"
+                  >
                     <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
                       <img 
                         src={relatedProduct.image} 
