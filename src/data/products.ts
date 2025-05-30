@@ -46,9 +46,7 @@ import roledsmart_2 from '../assets/images/products/roledsmart_2.jpg';
 import rolcdsmart from '../assets/images/products/rolcdsmart.jpg';
 import rolcdsmart_1 from '../assets/images/products/rolcdsmart_1.jpg';
 import rolcdsmart_2 from '../assets/images/products/rolcdsmart_2.jpg';
-import rolcdsmart_3 from '../assets/images/products/rolcdsmart_3.jpg';
-import rolcdsmart_4 from '../assets/images/products/rolcdsmart_4.jpg';
-import rolcdsmart_5 from '../assets/images/products/rolcdsmart_5.jpg';
+
 
 import filterCartridge from '../assets/images/products/filter-cartridge.jpg';
 
@@ -307,7 +305,7 @@ export const products: Product[] = [
       { name: 'All Settings are Editable.' }
     ],
     image: rolcdsmart,
-    images: [rolcdsmart, rolcdsmart_1, rolcdsmart_2, rolcdsmart_3, rolcdsmart_4, rolcdsmart_5],
+    images: [rolcdsmart, rolcdsmart_1, rolcdsmart_2],
     warranty: '2 years',
     specifications: {
       'Operating Voltage': '110-240V AC',
