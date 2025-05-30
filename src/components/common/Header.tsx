@@ -69,8 +69,7 @@ const Header = () => {
             className="flex items-center space-x-2"
             onClick={handleNavigation}
           >
-            <img src={logo} alt="RIVA Logo" className="h-12 w-auto" />
-            <span className="text-xl font-bold text-white hidden md:block">RIVA Power Solutions</span>
+            <img src={logo} alt="RIVA Logo" className="h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
