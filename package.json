@@ -1,6 +1,8 @@
 {
   "name": "riva-power-solutions",
   "private": true,
+    "homepage": "https://www.rivapowersolutions.com",
+
   "version": "0.1.0",
   "type": "module",
   "scripts": {
