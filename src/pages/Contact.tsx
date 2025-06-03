@@ -97,10 +97,11 @@ const Contact = () => {
                 <Phone size={24} className="text-primary-600" />
               </div>
               <h3 className="text-lg font-semibold text-slate-800 mb-2">Phone</h3>
-              <a href="tel:+916300021355" className="text-primary-600 hover:underline">+91 6300021355</a>
+              <a href="tel:+916300021355" className="text-primary-600 hover:underline block">+91 6300021355</a>
+              <a href="tel:+919000770825" className="text-primary-600 hover:underline block">+91 9000770825</a>
+              <a href="tel:+919032412905" className="text-primary-600 hover:underline block">+91 9032412905</a>
               <p className="text-sm text-slate-500 mt-2">Mon-Sat, 9am to 6pm</p>
-            </div>
-            
+              </div>
             <div className="card p-6 flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
                 <Mail size={24} className="text-primary-600" />
